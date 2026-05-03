@@ -152,3 +152,7 @@ ann_env/
 
 # PyCharm
 .idea/
+
+# MCP Configuration (contains API keys)
+mcp_config.json
+*.mcp_config.json
