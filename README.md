@@ -142,9 +142,9 @@
    Frontend will be available at `http://localhost:3000`
 
 4. **Access the Application**
-   - **Frontend**: http://localhost:3000
-   - **API Docs**: http://localhost:8000/docs
-   - **Health Check**: http://localhost:8000/api/v1/health
+   - **Frontend**: https://creditlens-pred.vercel.app/
+   - **API Docs**: https://credit-default-prediction-yod3.onrender.com/docs
+   - **Health Check**: https://credit-default-prediction-yod3.onrender.com/api/v1/health
 
 ---
 
