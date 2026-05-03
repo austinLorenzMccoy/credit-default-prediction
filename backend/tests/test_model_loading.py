@@ -14,8 +14,8 @@ logger = logging.getLogger(__name__)
 project_root = Path(__file__).resolve().parent
 sys.path.insert(0, str(project_root))
 
-from src.utils.model_loader import load_model_safely, load_scaler_safely
-from src.config import settings
+from app.utils.model_loader import load_model_safely, load_scaler_safely
+from app.config import settings
 
 def test_model_loading():
     """Test loading models and scalers."""

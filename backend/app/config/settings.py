@@ -5,7 +5,7 @@ import os
 from pathlib import Path
 
 # Base directory of the project
-BASE_DIR = Path(__file__).resolve().parent.parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Model file paths
 CLASSIFICATION_MODEL_PATH = os.path.join(BASE_DIR, "models", "classification_model.keras")

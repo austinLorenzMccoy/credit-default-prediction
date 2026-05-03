@@ -12,8 +12,8 @@ from pathlib import Path
 project_root = Path(__file__).parent
 sys.path.insert(0, str(project_root))
 
-from src.config import settings
-from src.models.train import ModelTrainer
+from app.config import settings
+from app.models.train import ModelTrainer
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format=settings.LOG_FORMAT)
@@ -24,7 +24,7 @@ def run_api(host="0.0.0.0", port=8000, reload=True):
     import uvicorn
     logger.info(f"Starting API server on {host}:{port}")
     uvicorn.run(
-        "src.api.app:app",
+        "app.api.app:app",
         host=host,
         port=port,
         reload=reload,

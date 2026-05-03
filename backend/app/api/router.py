@@ -5,8 +5,8 @@ from fastapi import APIRouter, HTTPException, Depends
 from typing import Dict, Any
 
 # Use the mock predictor for now due to model loading issues
-from src.models.mock_predictor import MockPredictor
-from src.schemas.request_models import (
+from app.models.mock_predictor import MockPredictor
+from app.schemas.request_models import (
     SimplifiedPredictionRequest, 
     DefaultPredictionResponse, 
     CreditLimitPredictionResponse,
