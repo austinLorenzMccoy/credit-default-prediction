@@ -5,8 +5,8 @@ import logging
 from typing import Dict, Any, Tuple, Optional
 
 import numpy as np
-from tensorflow.keras.models import Model
 from sklearn.preprocessing import StandardScaler
+# TensorFlow removed - using scikit-learn only for Python 3.14 compatibility
 
 from src.config import settings
 from src.utils.data_processor import prepare_input_data, format_default_prediction

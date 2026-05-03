@@ -6,7 +6,7 @@ import pickle
 import logging
 from typing import Any, Optional
 
-from tensorflow.keras.models import load_model
+# TensorFlow removed - using scikit-learn only for Python 3.14 compatibility
 
 logger = logging.getLogger(__name__)
 
