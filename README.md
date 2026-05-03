@@ -58,18 +58,25 @@ Ensure you have the following installed:
 ### Installation  
 1. Clone the repository:  
    ```bash  
-   git clone https://github.com/austinLorenzMccoy/credit-prediction-api  
-   cd credit-prediction-api  
+   git clone https://github.com/austinLorenzMccoy/credit-default-prediction  
+   cd credit-default-prediction  
    ```  
 2. Install dependencies:  
    ```bash  
-   pip install -r requirements.txt  
+   pip install -r backend/requirements.txt  
    ```  
 
 ### Running the API  
 To start the API server locally:  
 ```bash  
-python cli.py api  
+cd backend  
+python main.py  
+```  
+
+Alternative using CLI:  
+```bash  
+cd backend  
+python scripts/cli.py api  
 ```  
 
 ## 📡 API Endpoints  
@@ -189,20 +196,33 @@ Response:
 ## 📂 Project Structure  
 
 ```plaintext  
-credit-prediction-api/  
-├── app/  
-│   ├── app.py             # FastAPI application  
-│   ├── main.py            # Model training script  
-│   ├── models/            # Pre-trained models  
-│   ├── scalers/           # Saved scalers  
-├── data/  
-│   ├── raw/               # Original datasets  
-├── notebooks/             # Jupyter notebooks for EDA and model training  
-├── frontend/              # HTML, CSS, and JS files for the user interface  
-├── tests/                 # Unit tests for endpoints  
-├── requirements.txt       # Python dependencies  
-├── README.md              # Project documentation  
-└── .env                   # Environment variables  
+credit-default-prediction/  
+├── backend/               # Backend API and ML models  
+│   ├── app/               # FastAPI application code  
+│   │   ├── api/           # API routes and endpoints  
+│   │   ├── config/        # Configuration settings  
+│   │   ├── models/        # ML model implementations  
+│   │   ├── schemas/       # Pydantic request/response models  
+│   │   └── utils/         # Utility functions  
+│   ├── scripts/           # CLI and utility scripts  
+│   │   ├── cli.py         # Command-line interface  
+│   │   └── run.py         # Application runner  
+│   ├── tests/             # Backend unit tests  
+│   ├── models/            # Pre-trained model files  
+│   ├── requirements.txt   # Backend Python dependencies  
+│   └── main.py            # Backend entry point  
+├── frontend/              # Frontend UI files (for future improvement)  
+│   ├── css/               # Stylesheets  
+│   ├── js/                # JavaScript files  
+│   └── index.html         # Main UI page  
+├── notebook/              # Jupyter notebooks for EDA and training  
+├── models/                # Additional model storage  
+├── examples/              # API usage examples  
+├── tests/                 # Root-level tests  
+├── pyproject.toml         # Project configuration  
+├── Dockerfile             # Docker configuration  
+├── requirements.txt       # Root dependencies  
+└── README.md              # Project documentation  
 ```  
 
 ---

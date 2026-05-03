@@ -1,4 +1,4 @@
-FROM python:3.10-alpine
+FROM python:3.10-slim
 
 # Set environment variables
 ENV PYTHONUNBUFFERED=1 \
@@ -9,20 +9,21 @@ ENV PYTHONUNBUFFERED=1 \
     PORT=8000
 
 # Create a non-root user
-RUN addgroup -S appgroup && adduser -S appuser -G appgroup
+RUN groupadd --system appgroup && useradd --system --create-home --gid appgroup appuser
 
 # Set up working directory
 WORKDIR /app
 
 # Install security updates and dependencies
-RUN apk update && \
-    apk upgrade && \
-    apk add --no-cache gcc musl-dev linux-headers && \
-    apk add --no-cache libffi-dev
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install -y gcc build-essential linux-headers-generic && \
+    apt-get install -y libffi-dev && \
+    apt-get clean
 
 # Copy requirements and install dependencies
-COPY requirements.txt pyproject.toml ./
-RUN pip install --no-cache-dir -e .
+COPY backend/requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Create directory for models
 RUN mkdir -p models && \
@@ -38,4 +39,4 @@ EXPOSE 8000
 USER appuser
 
 # Run the application with reduced privileges
-CMD ["uvicorn", "src.api.app:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "backend.app.api.app:app", "--host", "0.0.0.0", "--port", "8000"]

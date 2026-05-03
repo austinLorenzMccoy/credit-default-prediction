@@ -32,7 +32,10 @@ notebook/
 logs/
 .ipynb_checkpoints/
 frontend/
+backend/tests/
 
 # Don't ignore these files
+!backend/models/*.keras
+!backend/models/*.pkl
 !models/*.keras
 !models/*.pkl

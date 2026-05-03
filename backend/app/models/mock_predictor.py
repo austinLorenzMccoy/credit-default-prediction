@@ -4,7 +4,7 @@ Mock predictor for testing the API.
 import logging
 import random
 from typing import Dict, Any, Tuple, List
-from src.schemas.request_models import SimplifiedPredictionRequest
+from app.schemas.request_models import SimplifiedPredictionRequest
 
 logger = logging.getLogger(__name__)
 
