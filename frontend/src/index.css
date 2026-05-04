@@ -2,7 +2,7 @@
 @import "tailwindcss";
 
 body {
-  @apply bg-mist text-ink font-body;
+  @apply bg-slate-50 text-slate-800 font-serif;
 }
 
 .shadow-ambient {
