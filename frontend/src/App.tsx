@@ -44,16 +44,16 @@ export default function App() {
         return <CreditLimitDetail />;
       case 'api-status':
         return (
-          <div className="flex flex-col items-center justify-center min-h-[60vh] text-center p-8 border border-dashed border-rule rounded-2xl bg-white/50">
-            <h3 className="text-2xl font-heading text-ink mb-4">API Monitor</h3>
+          <div className="flex flex-col items-center justify-center min-h-[60vh] text-center p-8 border border-dashed border-slate-200 rounded-2xl bg-slate-50">
+            <h3 className="text-2xl font-serif text-slate-800 mb-4">API Monitor</h3>
             <p className="text-slate-500 mb-8 max-w-md">Our global infrastructure is currently operating within normal parameters.</p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 w-full max-w-4xl">
               {['US-EAST', 'EU-WEST', 'ASIA-PAC', 'SA-EAST'].map(node => (
-                <div key={node} className="p-4 bg-white rounded-xl shadow-ambient border border-rule">
+                <div key={node} className="p-4 bg-white rounded-xl shadow-lg border border-slate-200">
                   <div className="font-mono text-[10px] text-slate-400 mb-2">{node}</div>
                   <div className="flex items-center justify-between">
                     <span className="font-mono text-xs font-bold text-sage">ONLINE</span>
-                    <div className="w-2 h-2 rounded-full bg-sage animate-pulse"></div>
+                    <div className="w-2 h-2 rounded-full bg-green-600 animate-pulse"></div>
                   </div>
                 </div>
               ))}
