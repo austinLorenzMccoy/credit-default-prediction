@@ -28,7 +28,7 @@ export function LandingPage({ onStart }: { onStart: () => void }) {
   return (
     <div className="min-h-screen bg-slate-50">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full z-50 border-b border-slate-200 bg-white/95 backdrop-blur-md shadow-lg">
+      <nav className="fixed top-0 w-full z-50 border-b border-slate-200 bg-glass shadow-lg">
         <div className="flex justify-between items-center max-w-7xl mx-auto px-6 h-16">
           <div className="text-xl font-bold text-slate-800 font-serif cursor-pointer" onClick={() => window.scrollTo(0, 0)}>CreditLens</div>
           <div className="hidden md:flex items-center gap-8 relative">
@@ -133,7 +133,7 @@ export function LandingPage({ onStart }: { onStart: () => void }) {
             animate={{ opacity: 1, scale: 1 }}
             className="flex-1 w-full relative"
           >
-            <div className="relative bg-white p-4 rounded-xl shadow-lg border border-slate-200 transform rotate-1">
+            <div className="relative bg-white p-4 rounded-xl shadow-lg border border-slate-200 transform rotate-1 card-hover">
               <div className="rounded-lg overflow-hidden border border-slate-300/50">
                 <img 
                   src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800" 
@@ -156,7 +156,7 @@ export function LandingPage({ onStart }: { onStart: () => void }) {
       </header>
 
       {/* Stats Strip */}
-      <section className="bg-slate-50 border-y border-slate-200 py-12">
+      <section className="bg-gradient-to-br from-slate-50 to-slate-100 border-y border-slate-200 py-16">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
           {[
             { label: 'Accuracy', value: '98.2%' },
@@ -173,25 +173,25 @@ export function LandingPage({ onStart }: { onStart: () => void }) {
       </section>
 
       {/* How It Works */}
-      <section className="py-24 px-6 bg-white">
+      <section className="py-24 px-6 bg-gradient-to-br from-white via-slate-50/20 to-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
-            <h2 className="font-serif text-4xl text-slate-800 mb-4">Precision Workflow</h2>
-            <p className="text-body text-slate-500 max-w-xl mx-auto">From raw data to board-ready insights in milliseconds. Our pipeline is designed for security and speed.</p>
+            <h2 className="font-serif text-4xl text-slate-800 mb-4 text-gradient">Precision Workflow</h2>
+            <p className="text-slate-600 leading-relaxed mb-8 text-lg max-w-xl mx-auto">From raw data to board-ready insights in milliseconds. Our pipeline is designed for security and speed.</p>
           </div>
           <div className="grid md:grid-cols-3 gap-12 relative">
-            <div className="hidden md:block absolute top-[15%] left-[20%] right-[20%] h-px bg-slate-200/50"></div>
+            <div className="hidden md:block absolute top-[15%] left-[20%] right-[20%] h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent"></div>
             {[
               { title: 'Submit Customer Data', desc: 'Securely ingest financial statements and behavioral data via our robust API or batch CSV processing.', icon: Database },
               { title: 'ML Engine Scores Risk', desc: 'Deep learning models process hundreds of variables to identify non-linear risk patterns invisible to legacy systems.', icon: Zap },
               { title: 'Receive Actionable Insight', desc: 'Get clear, documented recommendations including probability of default and recommended exposure limits.', icon: BarChart3 },
             ].map((step, idx) => (
               <div key={idx} className="text-center flex flex-col items-center group">
-                <div className="w-16 h-16 rounded-full bg-slate-100 flex items-center justify-center text-orange-600 mb-6 border border-orange-200/20 group-hover:scale-110 transition-transform">
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-orange-600 to-amber-500 flex items-center justify-center text-white mb-6 shadow-lg border border-orange-200/20 group-hover:scale-110 transition-transform">
                   <step.icon size={28} />
                 </div>
                 <h3 className="font-serif text-xl text-slate-800 mb-3">{step.title}</h3>
-                <p className="text-sm text-slate-500 leading-relaxed px-4">{step.desc}</p>
+                <p className="text-slate-600 leading-relaxed px-4">{step.desc}</p>
               </div>
             ))}
           </div>
@@ -199,7 +199,7 @@ export function LandingPage({ onStart }: { onStart: () => void }) {
       </section>
 
       {/* Features */}
-      <section className="py-24 px-6 bg-slate-50">
+      <section className="py-24 px-6 bg-gradient-to-br from-slate-50 via-slate-100 to-white">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
@@ -208,10 +208,12 @@ export function LandingPage({ onStart }: { onStart: () => void }) {
               { title: 'FastAPI Backend', desc: 'Built for high-concurrency requests with asynchronous processing for real-time risk evaluation.', icon: Zap },
               { title: 'Transparent Factors', desc: 'Explainable AI (XAI) layers that highlight the specific variables driving each risk score.', icon: Shield },
             ].map((f, idx) => (
-              <div key={idx} className="bg-white p-8 border border-slate-200 shadow-lg rounded-lg border-t-4 border-t-slate-700 hover:-translate-y-1 transition-all">
-                <f.icon className="text-orange-600 mb-6" size={32} />
-                <h4 className="font-serif text-lg mb-3">{f.title}</h4>
-                <p className="text-sm text-slate-500 leading-relaxed">{f.desc}</p>
+              <div key={idx} className="bg-white p-8 border border-slate-200 shadow-lg rounded-lg border-t-4 border-t-slate-700 hover:-translate-y-1 transition-all card-hover">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-cyan-400 flex items-center justify-center text-white mb-6 shadow-lg border border-blue-300/20 group-hover:scale-110 transition-transform">
+                  <f.icon className="text-white mb-6" size={32} />
+                </div>
+                <h4 className="font-serif text-lg text-slate-800 mb-3">{f.title}</h4>
+                <p className="text-slate-600 leading-relaxed px-4">{f.desc}</p>
               </div>
             ))}
           </div>
@@ -219,11 +221,11 @@ export function LandingPage({ onStart }: { onStart: () => void }) {
       </section>
 
       {/* API Preview */}
-      <section className="py-24 px-6 bg-white overflow-hidden">
+      <section className="py-24 px-6 bg-gradient-to-br from-slate-50 to-slate-100 to-white">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16">
           <div className="lg:w-1/2">
-            <span className="font-mono text-[13px] text-orange-600 uppercase mb-4 block tracking-widest">Developer First</span>
-            <h2 className="font-serif text-4xl text-slate-800 mb-6">Integrate in Minutes</h2>
+            <span className="font-mono text-[13px] text-gradient uppercase mb-4 block tracking-widest">Developer First</span>
+            <h2 className="font-serif text-4xl text-slate-800 mb-6 text-gradient">Integrate in Minutes</h2>
             <p className="text-body text-slate-500 leading-relaxed mb-8 text-lg">
               Our API is designed for financial engineers. Clean endpoints, comprehensive documentation, and predictable JSON responses make integration into your existing LOS simple.
             </p>
@@ -270,7 +272,7 @@ export function LandingPage({ onStart }: { onStart: () => void }) {
       </section>
 
       {/* Footer */}
-      <footer className="bg-slate-100 py-12 px-6 border-t border-slate-200 mt-20">
+      <footer className="bg-gradient-to-br from-slate-100 to-slate-50 border-t border-slate-200 py-12">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="flex flex-col items-center md:items-start gap-2">
             <div className="text-xl font-bold text-slate-800 font-serif">CreditLens</div>

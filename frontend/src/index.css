@@ -2,13 +2,37 @@
 @import "tailwindcss";
 
 body {
-  @apply bg-slate-50 text-slate-800 font-serif;
+  @apply bg-gradient-to-br from-slate-50 via-white to-slate-100 text-slate-800 font-serif;
 }
 
 .shadow-ambient {
-  box-shadow: 0 2px 12px rgba(13,27,42,0.06);
+  box-shadow: 0 4px 20px rgba(13,27,42,0.08);
 }
 
 .code-glow {
-  box-shadow: 0 0 20px rgba(196, 98, 45, 0.15);
+  box-shadow: 0 0 30px rgba(196, 98, 45, 0.2);
+}
+
+/* Enhanced styling for professional appearance */
+.bg-glass {
+  @apply bg-white/80 backdrop-blur-lg border border-slate-200/50;
+}
+
+.text-gradient {
+  @apply bg-gradient-to-r from-orange-600 to-amber-500 bg-clip-text text-transparent;
+}
+
+.card-hover {
+  @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-2;
+}
+
+/* Ensure proper font loading */
+@layer base {
+  * {
+    @apply border-slate-200;
+  }
+  
+  body {
+    @apply text-slate-800 font-serif antialiased;
+  }
 }
