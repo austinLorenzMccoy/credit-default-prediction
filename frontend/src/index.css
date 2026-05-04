@@ -1,31 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Serif+Display&family=Lora:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
 @import "tailwindcss";
 
-@theme {
-  --color-ink: #0D1B2A;
-  --color-copper: #C4622D;
-  --color-slate-blue: #2E4057;
-  --color-sand: #F0E6D3;
-  --color-sage: #4A7C59;
-  --color-amber: #D4A017;
-  --color-mist: #F7F4F0;
-  --color-rule: #D9D0C7;
-
-  --color-surface: #fff8f6;
-  --color-surface-dim: #e9d6cf;
-  --color-surface-bright: #fff8f6;
-  --color-surface-container-lowest: #ffffff;
-  --color-surface-container-low: #fff1eb;
-  --color-surface-container: #fdeae2;
-  --color-surface-container-high: #f7e4dd;
-  --color-surface-container-highest: #f2dfd7;
-  
-  --font-display: "Playfair Display", serif;
-  --font-heading: "DM Serif Display", serif;
-  --font-body: "Lora", serif;
-  --font-mono: "IBM Plex Mono", monospace;
-}
-
 body {
   @apply bg-mist text-ink font-body;
 }
