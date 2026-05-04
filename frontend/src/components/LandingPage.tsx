@@ -26,9 +26,9 @@ export function LandingPage({ onStart }: { onStart: () => void }) {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-mist">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full z-50 border-b border-rule bg-white/95 backdrop-blur-md shadow-ambient">
+      <nav className="fixed top-0 w-full z-50 border-b border-rule bg-surface/95 backdrop-blur-md shadow-ambient">
         <div className="flex justify-between items-center max-w-7xl mx-auto px-6 h-16">
           <div className="text-xl font-bold text-ink font-heading cursor-pointer" onClick={() => window.scrollTo(0, 0)}>CreditLens</div>
           <div className="hidden md:flex items-center gap-8 relative">
@@ -133,7 +133,7 @@ export function LandingPage({ onStart }: { onStart: () => void }) {
             animate={{ opacity: 1, scale: 1 }}
             className="flex-1 w-full relative"
           >
-            <div className="relative bg-white p-4 rounded-xl shadow-ambient border border-rule transform rotate-1">
+            <div className="relative bg-surface p-4 rounded-xl shadow-ambient border border-rule transform rotate-1">
               <div className="rounded-lg overflow-hidden border border-rule/50">
                 <img 
                   src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800" 
@@ -173,7 +173,7 @@ export function LandingPage({ onStart }: { onStart: () => void }) {
       </section>
 
       {/* How It Works */}
-      <section className="py-24 px-6 bg-white">
+      <section className="py-24 px-6 bg-surface">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
             <h2 className="font-heading text-4xl text-ink mb-4">Precision Workflow</h2>
@@ -208,7 +208,7 @@ export function LandingPage({ onStart }: { onStart: () => void }) {
               { title: 'FastAPI Backend', desc: 'Built for high-concurrency requests with asynchronous processing for real-time risk evaluation.', icon: Zap },
               { title: 'Transparent Factors', desc: 'Explainable AI (XAI) layers that highlight the specific variables driving each risk score.', icon: Shield },
             ].map((f, idx) => (
-              <div key={idx} className="bg-white p-8 border border-rule shadow-ambient rounded-lg border-t-4 border-t-slate-blue hover:-translate-y-1 transition-all">
+              <div key={idx} className="bg-surface p-8 border border-rule shadow-ambient rounded-lg border-t-4 border-t-slate-blue hover:-translate-y-1 transition-all">
                 <f.icon className="text-copper mb-6" size={32} />
                 <h4 className="font-heading text-lg mb-3">{f.title}</h4>
                 <p className="text-sm text-slate-500 leading-relaxed">{f.desc}</p>
@@ -219,7 +219,7 @@ export function LandingPage({ onStart }: { onStart: () => void }) {
       </section>
 
       {/* API Preview */}
-      <section className="py-24 px-6 bg-white overflow-hidden">
+      <section className="py-24 px-6 bg-surface overflow-hidden">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16">
           <div className="lg:w-1/2">
             <span className="font-mono text-[13px] text-copper uppercase mb-4 block tracking-widest">Developer First</span>
@@ -269,7 +269,7 @@ export function LandingPage({ onStart }: { onStart: () => void }) {
       </section>
 
       {/* Footer */}
-      <footer className="bg-slate-50 py-12 px-6 border-t border-rule mt-20">
+      <footer className="bg-surface-container-low py-12 px-6 border-t border-rule mt-20">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="flex flex-col items-center md:items-start gap-2">
             <div className="text-xl font-bold text-ink font-heading">CreditLens</div>
