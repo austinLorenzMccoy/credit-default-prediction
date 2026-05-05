@@ -33,6 +33,10 @@
   /* Shadows */
   --shadow-ambient: 0 4px 20px rgba(13,27,42,0.08);
   --shadow-lifted:  0 12px 32px rgba(13,27,42,0.14);
+
+  /* Additional spacing for better layout */
+  --space-y-stack-lg: 4rem;
+  --gap-gutter: 1.5rem;
 }
 
 /* ─── Base ────────────────────────────────────────────────────────────────── */
@@ -105,7 +109,7 @@ input, select, textarea {
 
 input:focus, select:focus, textarea:focus {
   outline: none;
-  ring: 2px solid #C4622D;
+  box-shadow: 0 0 0 2px #C4622D;
 }
 
 /* ─── Animations ──────────────────────────────────────────────────────────── */
