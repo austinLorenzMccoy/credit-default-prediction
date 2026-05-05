@@ -2,7 +2,12 @@
 @import "tailwindcss";
 
 body {
-  @apply bg-gradient-to-br from-slate-50 via-white to-slate-100 text-slate-800 font-serif;
+  background: linear-gradient(135deg, #f8fafc 0%, #ffffff 50%, #f1f5f9 100%);
+  color: #1e293b;
+  font-family: 'Lora', serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
 }
 
 .shadow-ambient {
@@ -15,24 +20,101 @@ body {
 
 /* Enhanced styling for professional appearance */
 .bg-glass {
-  @apply bg-white/80 backdrop-blur-lg border border-slate-200/50;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(226, 232, 240, 0.5);
 }
 
 .text-gradient {
-  @apply bg-gradient-to-r from-orange-600 to-amber-500 bg-clip-text text-transparent;
+  background: linear-gradient(135deg, #ea580c 0%, #d97706 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 
 .card-hover {
-  @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-2;
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  transform: translateY(-8px);
 }
 
 /* Ensure proper font loading */
-@layer base {
-  * {
-    @apply border-slate-200;
-  }
-  
-  body {
-    @apply text-slate-800 font-serif antialiased;
-  }
+* {
+  border-color: #e2e8f0;
+}
+
+body {
+  color: #1e293b;
+  font-family: 'Lora', serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Additional professional styling */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+}
+
+.heading-display {
+  font-family: 'DM Serif Display', serif;
+  font-weight: 700;
+}
+
+.font-mono {
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+/* Professional button styling */
+.btn-primary {
+  background: linear-gradient(135deg, #ea580c 0%, #dc2626 100%);
+  color: white;
+  padding: 12px 32px;
+  border-radius: 8px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(234, 88, 12, 0.25);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  box-shadow: 0 6px 8px rgba(234, 88, 12, 0.35);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: #ea580c;
+  padding: 12px 32px;
+  border-radius: 8px;
+  font-weight: 700;
+  border: 2px solid #ea580c;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background: rgba(234, 88, 12, 0.05);
+  transform: translateY(-2px);
+}
+
+/* Professional card styling */
+.professional-card {
+  background: white;
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0 4px 20px rgba(13, 27, 42, 0.08);
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
+}
+
+.professional-card:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  transform: translateY(-8px);
 }

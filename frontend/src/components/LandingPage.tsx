@@ -26,7 +26,7 @@ export function LandingPage({ onStart }: { onStart: () => void }) {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen">
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 border-b border-slate-200 bg-glass shadow-lg">
         <div className="flex justify-between items-center max-w-7xl mx-auto px-6 h-16">
@@ -112,18 +112,18 @@ export function LandingPage({ onStart }: { onStart: () => void }) {
             className="flex-1 text-left"
           >
             <span className="font-mono text-[13px] text-copper uppercase mb-4 block tracking-widest">Institutional Credit Intelligence</span>
-            <h1 className="text-slate-800 font-display text-display-lg mb-6">Know Before You Lend.</h1>
-            <p className="text-body text-slate-600 max-w-lg mb-10 leading-relaxed text-lg">
+            <h1 className="heading-display text-5xl mb-6">Know Before You Lend.</h1>
+            <p className="text-slate-600 max-w-lg mb-10 leading-relaxed text-lg">
               Neural network–driven credit risk scoring and limit recommendation. Built for financial institutions that act on data, not guesswork.
             </p>
             <div className="flex flex-wrap gap-4">
               <button 
                 onClick={onStart}
-                className="bg-orange-600 text-white px-8 py-3 rounded-lg font-bold flex items-center gap-2 hover:bg-orange-700 transition-all shadow-lg hover:shadow-xl active:scale-95"
+                className="btn-primary flex items-center gap-2"
               >
                 Try the Tool <ArrowRight size={18} />
               </button>
-              <button className="border-2 border-orange-600 text-orange-600 px-8 py-3 rounded-lg font-bold hover:bg-orange-50 transition-colors">
+              <button className="btn-secondary">
                 View API Docs
               </button>
             </div>
@@ -133,7 +133,7 @@ export function LandingPage({ onStart }: { onStart: () => void }) {
             animate={{ opacity: 1, scale: 1 }}
             className="flex-1 w-full relative"
           >
-            <div className="relative bg-white p-4 rounded-xl shadow-lg border border-slate-200 transform rotate-1 card-hover">
+            <div className="relative professional-card transform rotate-1">
               <div className="rounded-lg overflow-hidden border border-slate-300/50">
                 <img 
                   src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800" 
@@ -156,7 +156,7 @@ export function LandingPage({ onStart }: { onStart: () => void }) {
       </header>
 
       {/* Stats Strip */}
-      <section className="bg-gradient-to-br from-slate-50 to-slate-100 border-y border-slate-200 py-16">
+      <section className="bg-white border-y border-slate-200 py-16">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
           {[
             { label: 'Accuracy', value: '98.2%' },
@@ -173,7 +173,7 @@ export function LandingPage({ onStart }: { onStart: () => void }) {
       </section>
 
       {/* How It Works */}
-      <section className="py-24 px-6 bg-gradient-to-br from-white via-slate-50/20 to-white">
+      <section className="py-24 px-6 bg-slate-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
             <h2 className="font-serif text-4xl text-slate-800 mb-4 text-gradient">Precision Workflow</h2>
@@ -199,7 +199,7 @@ export function LandingPage({ onStart }: { onStart: () => void }) {
       </section>
 
       {/* Features */}
-      <section className="py-24 px-6 bg-gradient-to-br from-slate-50 via-slate-100 to-white">
+      <section className="py-24 px-6 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
@@ -221,7 +221,7 @@ export function LandingPage({ onStart }: { onStart: () => void }) {
       </section>
 
       {/* API Preview */}
-      <section className="py-24 px-6 bg-gradient-to-br from-slate-50 to-slate-100 to-white">
+      <section className="py-24 px-6 bg-slate-50">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16">
           <div className="lg:w-1/2">
             <span className="font-mono text-[13px] text-gradient uppercase mb-4 block tracking-widest">Developer First</span>
@@ -272,7 +272,7 @@ export function LandingPage({ onStart }: { onStart: () => void }) {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gradient-to-br from-slate-100 to-slate-50 border-t border-slate-200 py-12">
+      <footer className="bg-slate-100 border-t border-slate-200 py-12">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="flex flex-col items-center md:items-start gap-2">
             <div className="text-xl font-bold text-slate-800 font-serif">CreditLens</div>
