@@ -1,12 +1,44 @@
-/* ─── Fonts ─────────────────────────────────────────────────────────────── */
+/* ==========================================================================
+   CreditIntel Pro — index.css
+   Tailwind CSS v4 compatible. All design tokens defined explicitly here.
+   DO NOT use tailwind.config.js — v4 ignores it when using @import syntax.
+   This single file is the only CSS entry point needed.
+   ========================================================================== */
+
+/* ── 1. Fonts ────────────────────────────────────────────────────────────── */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Serif+Display&family=Lora:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
 
-/* ─── Tailwind v4 ────────────────────────────────────────────────────────── */
+/* ── 2. Tailwind v4 core (must come after @import url, before everything else) */
 @import "tailwindcss";
 
-/* ─── Design tokens (Tailwind v4 @theme) ─────────────────────────────────── */
+/* ── 3. CSS Custom Properties (native CSS variables — used everywhere below) */
+:root {
+  --copper:      #C4622D;
+  --copper-dk:   #A8521E;
+  --copper-lt:   #D4784A;
+  --slate-blue:  #2E4057;
+  --ink:         #0D1B2A;
+  --sand:        #F0E6D3;
+  --sage:        #4A7C59;
+  --amber:       #D4A017;
+  --mist:        #F7F4F0;
+  --error:       #C0392B;
+  --rule:        #D9D0C7;
+  --white:       #FFFFFF;
+
+  --font-heading: "Playfair Display", Georgia, serif;
+  --font-display: "DM Serif Display", "Playfair Display", Georgia, serif;
+  --font-body:    "Lora", Georgia, serif;
+  --font-mono:    "IBM Plex Mono", monospace;
+}
+
+/* ── 4. Tailwind v4 @theme — registers tokens as Tailwind utilities ──────── */
+/*
+   This block tells Tailwind v4 to generate bg-*, text-*, border-*,
+   font-*, shadow-*, spacing-* utilities from these values.
+   Combined with the explicit classes below, this covers 100% of usage.
+*/
 @theme {
-  /* Colors */
   --color-copper:      #C4622D;
   --color-copper-dk:   #A8521E;
   --color-slate-blue:  #2E4057;
@@ -18,39 +50,37 @@
   --color-error:       #C0392B;
   --color-rule:        #D9D0C7;
 
-  /* Font families */
-  --font-heading:  "Playfair Display", Georgia, serif;
-  --font-display:  "DM Serif Display", "Playfair Display", Georgia, serif;
-  --font-body:     "Lora", Georgia, serif;
-  --font-mono:     "IBM Plex Mono", monospace;
+  --font-heading: "Playfair Display", Georgia, serif;
+  --font-display: "DM Serif Display", "Playfair Display", Georgia, serif;
+  --font-body:    "Lora", Georgia, serif;
+  --font-mono:    "IBM Plex Mono", monospace;
 
-  /* Spacing extras */
   --spacing-stack-sm: 1.5rem;
   --spacing-stack-md: 2.5rem;
   --spacing-stack-lg: 4rem;
   --spacing-gutter:   1.5rem;
 
-  /* Shadows */
-  --shadow-ambient: 0 4px 20px rgba(13,27,42,0.08);
-  --shadow-lifted:  0 12px 32px rgba(13,27,42,0.14);
-
-  /* Additional spacing for better layout */
-  --space-y-stack-lg: 4rem;
-  --gap-gutter: 1.5rem;
+  --shadow-ambient: 0 4px 20px rgba(13, 27, 42, 0.08);
+  --shadow-lifted:  0 12px 32px rgba(13, 27, 42, 0.14);
 }
 
-/* ─── Base ────────────────────────────────────────────────────────────────── */
-*, *::before, *::after {
+/* ── 5. Base reset & body ────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  border-color: #D9D0C7;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: #F7F4F0;
-  color: #0D1B2A;
-  font-family: "Lora", Georgia, serif;
+  background-color: var(--mist);
+  color: var(--ink);
+  font-family: var(--font-body);
   font-size: 16px;
   line-height: 1.6;
   min-height: 100vh;
@@ -59,70 +89,238 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Playfair Display", Georgia, serif;
+  font-family: var(--font-heading);
   font-weight: 700;
   line-height: 1.15;
+  color: var(--ink);
 }
 
-/* ─── Scrollbar ───────────────────────────────────────────────────────────── */
-::-webkit-scrollbar { width: 6px; height: 6px; }
-::-webkit-scrollbar-track { background: #F7F4F0; }
-::-webkit-scrollbar-thumb { background: #D9D0C7; border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: #C4622D; }
+input,
+select,
+textarea,
+button {
+  font-family: inherit;
+}
 
-/* ─── Utility classes ─────────────────────────────────────────────────────── */
-.shadow-ambient { box-shadow: 0 4px 20px rgba(13,27,42,0.08); }
-.shadow-lifted  { box-shadow: 0 12px 32px rgba(13,27,42,0.14); }
+/* Scrollbar */
+::-webkit-scrollbar            { width: 5px; height: 5px; }
+::-webkit-scrollbar-track      { background: var(--mist); }
+::-webkit-scrollbar-thumb      { background: var(--rule); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover{ background: var(--copper); }
 
-.font-heading { font-family: "Playfair Display", Georgia, serif; }
-.font-display { font-family: "DM Serif Display", "Playfair Display", Georgia, serif; }
-.font-body    { font-family: "Lora", Georgia, serif; }
-.font-mono    { font-family: "IBM Plex Mono", monospace; }
+/* ── 6. EXPLICIT UTILITY CLASSES ─────────────────────────────────────────── */
+/*
+   Tailwind v4's JIT purges any class it can't statically analyse.
+   Dynamic classes (e.g. `color: 'text-sage'` in JS objects, template
+   strings, ternaries) are invisible to the scanner. We define every
+   custom token class explicitly here so they are always in the CSS
+   output regardless of how they appear in JSX.
+*/
 
+/* ── 6a. Font families ─────────────────────────────────────────────────── */
+.font-heading { font-family: "Playfair Display", Georgia, serif !important; }
+.font-display { font-family: "DM Serif Display", "Playfair Display", Georgia, serif !important; }
+.font-body    { font-family: "Lora", Georgia, serif !important; }
+.font-mono    { font-family: "IBM Plex Mono", monospace !important; }
+
+/* ── 6b. Text colors ───────────────────────────────────────────────────── */
+.text-copper     { color: #C4622D; }
+.text-copper-dk  { color: #A8521E; }
+.text-slate-blue { color: #2E4057; }
+.text-ink        { color: #0D1B2A; }
+.text-sand       { color: #F0E6D3; }
+.text-sage       { color: #4A7C59; }
+.text-amber      { color: #D4A017; }
+.text-mist       { color: #F7F4F0; }
+.text-error      { color: #C0392B; }
+.text-rule       { color: #D9D0C7; }
+
+/* Dynamic class — used as value in JS objects like { color: 'text-sage' } */
+.text-body { font-family: "Lora", Georgia, serif; }
+
+/* Opacity variants used in JSX */
+.text-slate-blue\/70 { color: rgba(46, 64, 87, 0.70); }
+.text-white\/75      { color: rgba(255,255,255,0.75); }
+.text-white\/60      { color: rgba(255,255,255,0.60); }
+.text-white\/50      { color: rgba(255,255,255,0.50); }
+.text-white\/40      { color: rgba(255,255,255,0.40); }
+.text-white\/35      { color: rgba(255,255,255,0.35); }
+.text-white\/30      { color: rgba(255,255,255,0.30); }
+.text-white\/25      { color: rgba(255,255,255,0.25); }
+.text-white\/70      { color: rgba(255,255,255,0.70); }
+.text-white\/85      { color: rgba(255,255,255,0.85); }
+
+/* ── 6c. Background colors ────────────────────────────────────────────── */
+.bg-copper     { background-color: #C4622D; }
+.bg-copper-dk  { background-color: #A8521E; }
+.bg-slate-blue { background-color: #2E4057; }
+.bg-ink        { background-color: #0D1B2A; }
+.bg-sand       { background-color: #F0E6D3; }
+.bg-sage       { background-color: #4A7C59; }
+.bg-amber      { background-color: #D4A017; }
+.bg-mist       { background-color: #F7F4F0; }
+.bg-error      { background-color: #C0392B; }
+
+/* Opacity background variants — slash notation */
+.bg-copper\/08  { background-color: rgba(196, 98,  45, 0.08); }
+.bg-copper\/10  { background-color: rgba(196, 98,  45, 0.10); }
+.bg-copper\/12  { background-color: rgba(196, 98,  45, 0.12); }
+.bg-copper\/15  { background-color: rgba(196, 98,  45, 0.15); }
+.bg-copper\/20  { background-color: rgba(196, 98,  45, 0.20); }
+.bg-sage\/10    { background-color: rgba(74,  124, 89, 0.10); }
+.bg-sage\/20    { background-color: rgba(74,  124, 89, 0.20); }
+.bg-amber\/10   { background-color: rgba(212, 160, 23, 0.10); }
+.bg-amber\/20   { background-color: rgba(212, 160, 23, 0.20); }
+.bg-mist\/20    { background-color: rgba(247, 244, 240, 0.20); }
+.bg-mist\/30    { background-color: rgba(247, 244, 240, 0.30); }
+.bg-mist\/40    { background-color: rgba(247, 244, 240, 0.40); }
+.bg-white\/10   { background-color: rgba(255, 255, 255, 0.10); }
+.bg-white\/50   { background-color: rgba(255, 255, 255, 0.50); }
+.bg-white\/80   { background-color: rgba(255, 255, 255, 0.80); }
+.bg-white\/85   { background-color: rgba(255, 255, 255, 0.85); }
+.bg-black\/25   { background-color: rgba(0,   0,   0,   0.25); }
+.bg-black\/30   { background-color: rgba(0,   0,   0,   0.30); }
+.bg-red-50      { background-color: #fef2f2; }
+
+/* ── 6d. Border colors ────────────────────────────────────────────────── */
+.border-rule       { border-color: #D9D0C7; }
+.border-copper     { border-color: #C4622D; }
+.border-slate-blue { border-color: #2E4057; }
+.border-sage       { border-color: #4A7C59; }
+.border-amber      { border-color: #D4A017; }
+.border-ink        { border-color: #0D1B2A; }
+.border-mist       { border-color: #F7F4F0; }
+.border-error      { border-color: #C0392B; }
+.border-red-200    { border-color: #fecaca; }
+
+/* Opacity border variants */
+.border-rule\/50   { border-color: rgba(217, 208, 199, 0.50); }
+.border-copper\/20 { border-color: rgba(196, 98,  45,  0.20); }
+.border-copper\/25 { border-color: rgba(196, 98,  45,  0.25); }
+.border-copper\/30 { border-color: rgba(196, 98,  45,  0.30); }
+.border-sage\/20   { border-color: rgba(74,  124, 89,  0.20); }
+.border-sage\/30   { border-color: rgba(74,  124, 89,  0.30); }
+.border-amber\/20  { border-color: rgba(212, 160, 23,  0.20); }
+.border-amber\/30  { border-color: rgba(212, 160, 23,  0.30); }
+.border-white\/06  { border-color: rgba(255, 255, 255, 0.06); }
+.border-white\/08  { border-color: rgba(255, 255, 255, 0.08); }
+.border-white\/10  { border-color: rgba(255, 255, 255, 0.10); }
+.border-white\/40  { border-color: rgba(255, 255, 255, 0.40); }
+.border-white\/06  { border-color: rgba(255, 255, 255, 0.06); }
+
+/* Border-top color shortcuts */
+.border-t-copper     { border-top-color: #C4622D; }
+.border-t-slate-blue { border-top-color: #2E4057; }
+.border-t-sage       { border-top-color: #4A7C59; }
+
+/* Divide color (used in table rows: divide-rule) */
+.divide-rule > * + * { border-color: #D9D0C7; }
+
+/* ── 6e. Ring (focus) colors ──────────────────────────────────────────── */
+.ring-copper         { --tw-ring-color: #C4622D; }
+.focus\:ring-copper:focus {
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) #C4622D;
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+}
+.focus\:border-copper:focus { border-color: #C4622D; }
+.hover\:ring-copper:hover   {
+  --tw-ring-shadow: 0 0 0 2px #C4622D;
+  box-shadow: var(--tw-ring-shadow);
+}
+
+/* ── 6f. Shadow utilities ─────────────────────────────────────────────── */
+.shadow-ambient { box-shadow: 0 4px 20px rgba(13, 27, 42, 0.08) !important; }
+.shadow-lifted  { box-shadow: 0 12px 32px rgba(13, 27, 42, 0.14) !important; }
+.code-glow      { box-shadow: 0 0 40px rgba(196, 98, 45, 0.18); }
+
+/* ── 6g. Spacing — stack & gutter system ──────────────────────────────── */
+/* space-y-stack-* */
+.space-y-stack-sm > :not([hidden]) ~ :not([hidden]) { margin-top: 1.5rem; }
+.space-y-stack-md > :not([hidden]) ~ :not([hidden]) { margin-top: 2.5rem; }
+.space-y-stack-lg > :not([hidden]) ~ :not([hidden]) { margin-top: 4rem;   }
+
+/* space-x-gutter / space-y-gutter */
+.space-x-gutter > :not([hidden]) ~ :not([hidden]) { margin-left: 1.5rem; }
+.space-y-gutter > :not([hidden]) ~ :not([hidden]) { margin-top:  1.5rem; }
+
+/* gap-gutter */
+.gap-gutter { gap: 1.5rem; }
+
+/* padding / margin shorthands */
+.pb-stack-sm { padding-bottom: 1.5rem; }
+.pb-stack-md { padding-bottom: 2.5rem; }
+.py-stack-md { padding-top:    2.5rem; padding-bottom: 2.5rem; }
+.mb-stack-md { margin-bottom:  2.5rem; }
+.mb-stack-sm { margin-bottom:  1.5rem; }
+.p-stack-md  { padding:        2.5rem; }
+
+/* ── 6h. Hover state overrides for custom colors ─────────────────────── */
+/* These are used in JSX as hover:bg-mist, hover:bg-copper, etc. */
+.hover\:bg-mist:hover       { background-color: #F7F4F0; }
+.hover\:bg-copper:hover     { background-color: #C4622D; }
+.hover\:bg-copper-dk:hover  { background-color: #A8521E; }
+.hover\:bg-mist\/20:hover   { background-color: rgba(247, 244, 240, 0.20); }
+.hover\:text-copper:hover   { color: #C4622D; }
+.hover\:text-ink:hover      { color: #0D1B2A; }
+.hover\:border-copper:hover { border-color: #C4622D; }
+.hover\:bg-sage\/10:hover   { background-color: rgba(74, 124, 89, 0.10); }
+.hover\:bg-red-50:hover     { background-color: #fef2f2; }
+.hover\:ring-2:hover        { --tw-ring-shadow: 0 0 0 2px; }
+
+/* Group hover variants */
+.group:hover .group-hover\:text-copper  { color: #C4622D; }
+.group:hover .group-hover\:scale-110    { transform: scale(1.10); }
+.group:hover .group-hover\:translate-x-2 { transform: translateX(0.5rem); }
+
+/* ── 7. Component utility classes ────────────────────────────────────── */
+
+/* Gradient text */
 .text-gradient {
   background: linear-gradient(135deg, #C4622D 0%, #D4A017 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 
+/* Glass surface */
 .bg-glass {
-  background: rgba(255,255,255,0.8);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(217,208,199,0.5);
+  border: 1px solid rgba(217, 208, 199, 0.5);
 }
 
-/* ─── Card hover ──────────────────────────────────────────────────────────── */
+/* Card hover lift */
 .card-hover {
   transition: box-shadow 0.25s ease, transform 0.25s ease;
 }
 .card-hover:hover {
-  box-shadow: 0 16px 40px rgba(13,27,42,0.12);
-  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(13, 27, 42, 0.12);
+  transform: translateY(-3px);
 }
 
-/* ─── Form elements ───────────────────────────────────────────────────────── */
-input, select, textarea {
-  font-family: "Lora", Georgia, serif;
-  font-size: 0.875rem;
+/* Heading display alias */
+.heading-display {
+  font-family: "DM Serif Display", "Playfair Display", Georgia, serif;
 }
 
-input:focus, select:focus, textarea:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px #C4622D;
-}
-
-/* ─── Animations ──────────────────────────────────────────────────────────── */
+/* ── 8. Animations ──────────────────────────────────────────────────── */
 @keyframes pulse-dot {
-  0%, 100% { opacity: 1; }
-  50%       { opacity: 0.4; }
+  0%, 100% { opacity: 1;    }
+  50%       { opacity: 0.35; }
 }
-.animate-pulse { animation: pulse-dot 2s ease-in-out infinite; }
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
 
-/* ─── Reduced motion ─────────────────────────────────────────────────────── */
+.animate-pulse { animation: pulse-dot 2s ease-in-out infinite; }
+.animate-spin  { animation: spin 0.75s linear infinite; }
+
+/* ── 9. Reduced motion ──────────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
+    animation-duration:   0.01ms !important;
+    transition-duration:  0.01ms !important;
   }
 }
