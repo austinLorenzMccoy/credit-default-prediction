@@ -5,7 +5,7 @@
    This single file is the only CSS entry point needed.
    ========================================================================== */
 
-/* ── 1. Fonts ────────────────────────────────────────────────────────────── */
+/* ── 1. Fonts ────────────────────────────────────────────────────── */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Serif+Display&family=Lora:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
 
 /* ── 2. Tailwind v4 core (must come after @import url, before everything else) */
@@ -26,17 +26,25 @@
   --rule:        #D9D0C7;
   --white:       #FFFFFF;
 
-  --font-heading: "Playfair Display", Georgia, serif;
-  --font-display: "DM Serif Display", "Playfair Display", Georgia, serif;
+  --font-heading:  "Playfair Display", Georgia, serif;
+  --font-display:  "DM Serif Display", "Playfair Display", Georgia, serif;
   --font-body:    "Lora", Georgia, serif;
   --font-mono:    "IBM Plex Mono", monospace;
+
+  --spacing-stack-sm: 1.5rem;
+  --spacing-stack-md: 2.5rem;
+  --spacing-stack-lg: 4rem;
+  --spacing-gutter:   1.5rem;
+
+  --shadow-ambient: 0 4px 20px rgba(13,27,42,0.08);
+  --shadow-lifted:  0 12px 32px rgba(13,27,42,0.14);
 }
 
 /* ── 4. Tailwind v4 @theme — registers tokens as Tailwind utilities ──────── */
 /*
-   This block tells Tailwind v4 to generate bg-*, text-*, border-*,
-   font-*, shadow-*, spacing-* utilities from these values.
-   Combined with the explicit classes below, this covers 100% of usage.
+  This block tells Tailwind v4 to generate bg-*, text-*, border-*,
+  font-*, shadow-*, spacing-* utilities from these values.
+  Combined with explicit classes below, this covers 100% of usage.
 */
 @theme {
   --color-copper:      #C4622D;
@@ -50,8 +58,8 @@
   --color-error:       #C0392B;
   --color-rule:        #D9D0C7;
 
-  --font-heading: "Playfair Display", Georgia, serif;
-  --font-display: "DM Serif Display", "Playfair Display", Georgia, serif;
+  --font-heading:  "Playfair Display", Georgia, serif;
+  --font-display:  "DM Serif Display", "Playfair Display", Georgia, serif;
   --font-body:    "Lora", Georgia, serif;
   --font-mono:    "IBM Plex Mono", monospace;
 
@@ -60,14 +68,12 @@
   --spacing-stack-lg: 4rem;
   --spacing-gutter:   1.5rem;
 
-  --shadow-ambient: 0 4px 20px rgba(13, 27, 42, 0.08);
-  --shadow-lifted:  0 12px 32px rgba(13, 27, 42, 0.14);
+  --shadow-ambient: 0 4px 20px rgba(13,27,42,0.08);
+  --shadow-lifted:  0 12px 32px rgba(13,27,42,0.14);
 }
 
 /* ── 5. Base reset & body ────────────────────────────────────────────────── */
-*,
-*::before,
-*::after {
+*, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -95,10 +101,7 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--ink);
 }
 
-input,
-select,
-textarea,
-button {
+input, select, textarea, button {
   font-family: inherit;
 }
 
@@ -108,13 +111,13 @@ button {
 ::-webkit-scrollbar-thumb      { background: var(--rule); border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover{ background: var(--copper); }
 
-/* ── 6. EXPLICIT UTILITY CLASSES ─────────────────────────────────────────── */
+/* ── 6. EXPLICIT UTILITY CLASSES ─────────────────────────────────── */
 /*
-   Tailwind v4's JIT purges any class it can't statically analyse.
-   Dynamic classes (e.g. `color: 'text-sage'` in JS objects, template
-   strings, ternaries) are invisible to the scanner. We define every
-   custom token class explicitly here so they are always in the CSS
-   output regardless of how they appear in JSX.
+  Tailwind v4's JIT purges any class it can't statically analyse.
+  Dynamic classes (e.g. `color: 'text-sage'` in JS objects, template
+  strings, ternaries) are invisible to the scanner. We define every
+  custom token class explicitly here so they are always in the CSS
+  output regardless of how they appear in JSX.
 */
 
 /* ── 6a. Font families ─────────────────────────────────────────────────── */
@@ -162,22 +165,22 @@ button {
 .bg-error      { background-color: #C0392B; }
 
 /* Opacity background variants — slash notation */
-.bg-copper\/08  { background-color: rgba(196, 98,  45, 0.08); }
-.bg-copper\/10  { background-color: rgba(196, 98,  45, 0.10); }
-.bg-copper\/12  { background-color: rgba(196, 98,  45, 0.12); }
-.bg-copper\/15  { background-color: rgba(196, 98,  45, 0.15); }
-.bg-copper\/20  { background-color: rgba(196, 98,  45, 0.20); }
-.bg-sage\/10    { background-color: rgba(74,  124, 89, 0.10); }
-.bg-sage\/20    { background-color: rgba(74,  124, 89, 0.20); }
+.bg-copper\/08  { background-color: rgba(196, 98, 45, 0.08); }
+.bg-copper\/10  { background-color: rgba(196, 98, 45, 0.10); }
+.bg-copper\/12  { background-color: rgba(196, 98, 45, 0.12); }
+.bg-copper\/15  { background-color: rgba(196, 98, 45, 0.15); }
+.bg-copper\/20  { background-color: rgba(196, 98, 45, 0.20); }
+.bg-sage\/10    { background-color: rgba(74, 124, 89, 0.10); }
+.bg-sage\/20    { background-color: rgba(74, 124, 89, 0.20); }
 .bg-amber\/10   { background-color: rgba(212, 160, 23, 0.10); }
 .bg-amber\/20   { background-color: rgba(212, 160, 23, 0.20); }
 .bg-mist\/20    { background-color: rgba(247, 244, 240, 0.20); }
 .bg-mist\/30    { background-color: rgba(247, 244, 240, 0.30); }
 .bg-mist\/40    { background-color: rgba(247, 244, 240, 0.40); }
-.bg-white\/10   { background-color: rgba(255, 255, 255, 0.10); }
-.bg-white\/50   { background-color: rgba(255, 255, 255, 0.50); }
-.bg-white\/80   { background-color: rgba(255, 255, 255, 0.80); }
-.bg-white\/85   { background-color: rgba(255, 255, 255, 0.85); }
+.bg-white\/10   { background-color: rgba(255,255,255,0.10); }
+.bg-white\/50   { background-color: rgba(255,255,255,0.50); }
+.bg-white\/80   { background-color: rgba(255,255,255,0.80); }
+.bg-white\/85   { background-color: rgba(255,255,255,0.85); }
 .bg-black\/25   { background-color: rgba(0,   0,   0,   0.25); }
 .bg-black\/30   { background-color: rgba(0,   0,   0,   0.30); }
 .bg-red-50      { background-color: #fef2f2; }
@@ -195,23 +198,27 @@ button {
 
 /* Opacity border variants */
 .border-rule\/50   { border-color: rgba(217, 208, 199, 0.50); }
-.border-copper\/20 { border-color: rgba(196, 98,  45,  0.20); }
-.border-copper\/25 { border-color: rgba(196, 98,  45,  0.25); }
-.border-copper\/30 { border-color: rgba(196, 98,  45,  0.30); }
-.border-sage\/20   { border-color: rgba(74,  124, 89,  0.20); }
-.border-sage\/30   { border-color: rgba(74,  124, 89,  0.30); }
-.border-amber\/20  { border-color: rgba(212, 160, 23,  0.20); }
-.border-amber\/30  { border-color: rgba(212, 160, 23,  0.30); }
-.border-white\/06  { border-color: rgba(255, 255, 255, 0.06); }
-.border-white\/08  { border-color: rgba(255, 255, 255, 0.08); }
-.border-white\/10  { border-color: rgba(255, 255, 255, 0.10); }
-.border-white\/40  { border-color: rgba(255, 255, 255, 0.40); }
-.border-white\/06  { border-color: rgba(255, 255, 255, 0.06); }
+.border-copper\/20 { border-color: rgba(196, 98, 45, 0.20); }
+.border-copper\/25 { border-color: rgba(196, 98, 45, 0.25); }
+.border-copper\/30 { border-color: rgba(196, 98, 45, 0.30); }
+.border-sage\/20   { border-color: rgba(74, 124, 89, 0.20); }
+.border-sage\/30   { border-color: rgba(74, 124, 89, 0.30); }
+.border-amber\/20  { border-color: rgba(212, 160, 23, 0.20); }
+.border-amber\/30  { border-color: rgba(212, 160, 23, 0.30); }
+.border-white\/06  { border-color: rgba(255,255,255,0.06); }
+.border-white\/08  { border-color: rgba(255,255,255,0.08); }
+.border-white\/10  { border-color: rgba(255,255,255,0.10); }
+.border-white\/40  { border-color: rgba(255,255,255,0.40); }
+.border-white\/06  { border-color: rgba(255,255,255,0.06); }
 
 /* Border-top color shortcuts */
 .border-t-copper     { border-top-color: #C4622D; }
 .border-t-slate-blue { border-top-color: #2E4057; }
 .border-t-sage       { border-top-color: #4A7C59; }
+.border-t-amber      { border-top-color: #D4A017; }
+.border-t-ink        { border-top-color: #0D1B2A; }
+.border-t-mist       { border-top-color: #F7F4F0; }
+.border-t-error      { border-top-color: #C0392B; }
 
 /* Divide color (used in table rows: divide-rule) */
 .divide-rule > * + * { border-color: #D9D0C7; }
@@ -219,9 +226,9 @@ button {
 /* ── 6e. Ring (focus) colors ──────────────────────────────────────────── */
 .ring-copper         { --tw-ring-color: #C4622D; }
 .focus\:ring-copper:focus {
-  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
-  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) #C4622D;
-  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 calc(2px + var(--tw-ring-offset-width)) #C4622D;
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000;
 }
 .focus\:border-copper:focus { border-color: #C4622D; }
 .hover\:ring-copper:hover   {
@@ -230,19 +237,19 @@ button {
 }
 
 /* ── 6f. Shadow utilities ─────────────────────────────────────────────── */
-.shadow-ambient { box-shadow: 0 4px 20px rgba(13, 27, 42, 0.08) !important; }
-.shadow-lifted  { box-shadow: 0 12px 32px rgba(13, 27, 42, 0.14) !important; }
+.shadow-ambient { box-shadow: 0 4px 20px rgba(13,27,42,0.08) !important; }
+.shadow-lifted  { box-shadow: 0 12px 32px rgba(13,27,42,0.14) !important; }
 .code-glow      { box-shadow: 0 0 40px rgba(196, 98, 45, 0.18); }
 
 /* ── 6g. Spacing — stack & gutter system ──────────────────────────────── */
 /* space-y-stack-* */
 .space-y-stack-sm > :not([hidden]) ~ :not([hidden]) { margin-top: 1.5rem; }
 .space-y-stack-md > :not([hidden]) ~ :not([hidden]) { margin-top: 2.5rem; }
-.space-y-stack-lg > :not([hidden]) ~ :not([hidden]) { margin-top: 4rem;   }
+.space-y-stack-lg > :not([hidden]) ~ :not([hidden]) { margin-top: 4rem; }
 
 /* space-x-gutter / space-y-gutter */
 .space-x-gutter > :not([hidden]) ~ :not([hidden]) { margin-left: 1.5rem; }
-.space-y-gutter > :not([hidden]) ~ :not([hidden]) { margin-top:  1.5rem; }
+.space-y-gutter > :not([hidden]) ~ :not([hidden]) { margin-top: 1.5rem; }
 
 /* gap-gutter */
 .gap-gutter { gap: 1.5rem; }
@@ -251,8 +258,8 @@ button {
 .pb-stack-sm { padding-bottom: 1.5rem; }
 .pb-stack-md { padding-bottom: 2.5rem; }
 .py-stack-md { padding-top:    2.5rem; padding-bottom: 2.5rem; }
-.mb-stack-md { margin-bottom:  2.5rem; }
-.mb-stack-sm { margin-bottom:  1.5rem; }
+.mb-stack-md { margin-bottom: 2.5rem; }
+.mb-stack-sm { margin-bottom: 1.5rem; }
 .p-stack-md  { padding:        2.5rem; }
 
 /* ── 6h. Hover state overrides for custom colors ─────────────────────── */
@@ -261,14 +268,23 @@ button {
 .hover\:bg-copper:hover     { background-color: #C4622D; }
 .hover\:bg-copper-dk:hover  { background-color: #A8521E; }
 .hover\:bg-mist\/20:hover   { background-color: rgba(247, 244, 240, 0.20); }
+.hover\:bg-sage\/10:hover   { background-color: rgba(74, 124, 89, 0.10); }
+.hover\:bg-amber\/10:hover   { background-color: rgba(212, 160, 23, 0.10); }
+.hover\:bg-amber\/20:hover   { background-color: rgba(212, 160, 23, 0.20); }
+.hover\:bg-mist\/30:hover    { background-color: rgba(247, 244, 240, 0.30); }
+.hover\:bg-mist\/40:hover    { background-color: rgba(247, 244, 240, 0.40); }
+.hover\:bg-white\/10:hover     { background-color: rgba(255,255,255,0.10); }
+.hover\:bg-white\/50:hover     { background-color: rgba(255,255,255,0.50); }
+.hover\:bg-white\/85:hover     { background-color: rgba(255,255,255,0.85); }
+.hover\:bg-black\/25:hover     { background-color: rgba(0,   0,   0,   0.25); }
+.hover\:bg-black\/30:hover     { background-color: rgba(0,   0,   0,   0.30); }
+.hover\:bg-red-50:hover     { background-color: #fef2f2; }
 .hover\:text-copper:hover   { color: #C4622D; }
 .hover\:text-ink:hover      { color: #0D1B2A; }
 .hover\:border-copper:hover { border-color: #C4622D; }
 .hover\:bg-sage\/10:hover   { background-color: rgba(74, 124, 89, 0.10); }
 .hover\:bg-red-50:hover     { background-color: #fef2f2; }
 .hover\:ring-2:hover        { --tw-ring-shadow: 0 0 0 2px; }
-
-/* Group hover variants */
 .group:hover .group-hover\:text-copper  { color: #C4622D; }
 .group:hover .group-hover\:scale-110    { transform: scale(1.10); }
 .group:hover .group-hover\:translate-x-2 { transform: translateX(0.5rem); }
@@ -286,7 +302,7 @@ button {
 
 /* Glass surface */
 .bg-glass {
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255,255,255,0.85);
   backdrop-filter: blur(12px);
   border: 1px solid rgba(217, 208, 199, 0.5);
 }
@@ -296,7 +312,7 @@ button {
   transition: box-shadow 0.25s ease, transform 0.25s ease;
 }
 .card-hover:hover {
-  box-shadow: 0 16px 40px rgba(13, 27, 42, 0.12);
+  box-shadow: 0 16px 40px rgba(13,27,42,0.12);
   transform: translateY(-3px);
 }
 
@@ -307,7 +323,7 @@ button {
 
 /* ── 8. Animations ──────────────────────────────────────────────────── */
 @keyframes pulse-dot {
-  0%, 100% { opacity: 1;    }
+  0%, 100% { opacity: 1; }
   50%       { opacity: 0.35; }
 }
 @keyframes spin {
@@ -321,6 +337,6 @@ button {
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration:   0.01ms !important;
-    transition-duration:  0.01ms !important;
+    transition-duration: 0.01ms !important;
   }
 }
