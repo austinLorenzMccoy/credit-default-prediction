@@ -111,6 +111,7 @@
 ### Prerequisites
 
 - **Node.js** 18.0+ (for frontend)
+- **pnpm** 8.0+ (recommended for frontend)
 - **Python** 3.8+ (for backend)
 - **Docker** (optional, for containerized deployment)
 
@@ -135,14 +136,14 @@
 3. **Frontend Setup**
    ```bash
    cd frontend
-   npm install
+   pnpm install
    cp .env.example .env
-   npm run dev
+   pnpm run dev
    ```
    Frontend will be available at `http://localhost:3000`
 
 4. **Access the Application**
-   - **Frontend**: https://creditlens-pred.vercel.app/
+   - **Frontend**: https://credit-default-prediction.vercel.app/ ✅ **LIVE**
    - **API Docs**: https://credit-default-prediction-yod3.onrender.com/docs
    - **Health Check**: https://credit-default-prediction-yod3.onrender.com/api/v1/health
 
